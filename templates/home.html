@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <h1 align='center'>UTA Photo App - Home</h1>
+
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+
+    <br>
+    <br>
+</body>
+{% endblock content %}
+
+{% block uploadcontent %}
+<body>
+    <h4 align='center'>Add csv file to upload student data</h4>
+    <br>
+        <form action="{{url_for('uploadcsv')}}" align="center" method="POST" enctype=multipart/form-data>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload"><br>
+            <label for="fileupload"> Select a file to upload</label>
+            <input type="submit" value="Upload">
+        </form>
+
+    <br>
+    <br>
+</body>
+{% endblock uploadcontent %}
+
+
+{% block operations %}
+<body>
+    <h4>Allowed Operations</h4>
+    <ol type="1">
+      <li><a href='/list'>List students</a></li>
+      <li><a href='/searchpage'>Search user by name</a></li>
+      <li><a href='/gradefilterpage'>Search by grade</a></li>
+      <li><a href='/changepicpage'>Change picture for user</a></li>
+      <li><a href='/removepage'>Remove user</a></li>
+      <li><a href='/changekeywordpage'>Change keywords</li>
+      <li><a href='/changegradepage'>Change grade</a></li>
+    </ol>
+
+</body>
+{% endblock operations %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+{% endblock content %}
+
+{% block uploadcontent %}
+<body>
+    <h4 align="center">Update user's picture</h4>
+
+    <P align='center'> Enter name of user and upload the new picture</P>
+    <br>
+    <form align='center' action="{{url_for('change_picture')}}" method="POST" enctype="multipart/form-data">
+      <input type="text" placeholder="Name.." name="username">
+      <input type="file" name="picupload" accept="image/*"><br>
+      <button type="upload"></button>
+    </form>
+    <br>
+    <br>
+</body>
+{% endblock uploadcontent %}
+
+{% block operations%}
+
+    <body>
+    <h4>Student Result</h4>
+
+    <div class="container">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+          <th>Room</th>
+          <th>Telephone</th>
+          <th>Picture</th>
+          <th>Keyword</th>
+        </tr>
+
+        {% for row in record%}
+        <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td><img src="data:image/jpeg;base64,{{ row[4] }}" width="70" height="70" alt="smiley.jpg"></td>
+        <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+
+  </div>
+</body>
+
+{% endblock operations%}

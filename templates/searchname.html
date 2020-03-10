@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <h4 align="center">Search User</h4>
+
+    <P align='center'> Enter name of user to search</P>
+    <form align='center' action="{{url_for('search_user_by_name')}}" method="POST">
+      <input type="text" placeholder="Search.." name="usersearch">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <br>
+    <br>
+</body>
+
+{% endblock content %}
+
+{% block operations%}
+
+    <body>
+    <h4>Student Result</h4>
+
+    <div class="container">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+          <th>Room</th>
+          <th>Telephone</th>
+          <th>Picture</th>
+          <th>Keyword</th>
+        </tr>
+
+        {% for row in record%}
+        <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td><img src="data:image/jpeg;base64,{{ row[4] }}" width="70" height="70" alt="smiley.jpg"></td>
+        <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+
+  </div>
+</body>
+
+{% endblock operations%}
